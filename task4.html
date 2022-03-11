@@ -1,0 +1,63 @@
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<body>
+<style>
+.container {
+background-color: rgba(0, 0, 0, 0.3);
+border-bottom-left-radius: 50% 40%;
+border-bottom-right-radius: 50% 40%;
+}
+</style>
+<div class="container"align="center">
+<h1>Food items</h1>
+</div>
+<nav>
+<h2 style="text-align:left">breakfast</h2>
+<ul>
+<li><a href="#">idli</a></li>
+<li><a href="#">dosa</a></li>
+<li><a href="#">vada</a></li>
+<li><a href="#">pongal</a></li>
+</ul>
+</nav>
+<h1>cook with techie</h1>
+<details>
+<summary>idly recpie</summary>
+<p>
+Idli, a round shaped steamed rice-lentil cake, is one of the healthiest breakfast item of Indian Cuisine and staple food of South Indians. It is prepared by steaming the batter made of short-grain rice and protein rich urad dal and its preparation doesn’t require use of cooking oil apart from greasing the idli moulds in which batter is poured to give it a round disc shape. There are many varieties of idli; rice idli, rice rava idli, poha idli  instant rava idli, ragi idli, oats idli etc., are some its examples. This rice idli recipe explains how to make idli batter with right consistency and how to determine whether its fermented properly or not to make soft and spongy idli in great detail. Additionally, this recipe also covers how to make idli using pressure cooker 
+</p>
+</details>
+<p>responsive image</p>
+<img src="D:\softura training\pics\Cute_dog.jpg" style="width:100%">
+<h3>Time</h3>
+<button onclick="this.innerHTML=Date()">Click me</button>
+<br/>
+<h4>Attention</h4>
+<p>Come here - lets see how to get focus<br/>
+Go Away -lets see how to lose focus
+</p>
+<p id="p1">
+</p>
+<script>
+setInterval("Fokus()",1);
+function Fokus()
+{
+var str;
+if(document.hasFocus())
+{
+str="Got Focus";
+}
+else
+{
+str="lost focus";
+}
+document.getElementById("p1").innerHTML=str;
+}
+</script>
+<hr/>
+<script>
+window.alert("Alert");
+</script>
+<button onclick="window.print()">print</button>
+</body>
+</html>
