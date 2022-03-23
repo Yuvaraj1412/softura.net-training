@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css"href="login_style.css" />
+    <script type="text/javascript">
+        var login_attemps = 3;
+        function vaLogin() {
+            var un = document.getElementById("uname").value;
+            var pd = document.getElementById("pword").value;
+            if (un == "Yuvaraj" && pd == "12345") {
+                alert("Login Successful");
+                document.getElementById("unname").value = "";
+                document.getElementById("pword").value = "";
+            }
+            else {
+                if (login_attemps == 0) {
+                    alert("No login attempts available");
+                }
+                else {
+                    login_attemps = login_attemps - 1;
+                    alert("login failed now only" + login_attemps + "login attempts available");
+                    if (login_attemps == 0) {
+                        document.getElementById("uname").disabled = true;
+                        document.getElementById("pword").disabled = true;
+                        document.getElementById("form1").disabled = true;
+
+                    }
+                }
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <div style="color:indianred">
+    <center>
+    <h2>Login with your Credentials</h2>
+        </center>
+        </div>
+    <div>
+        <form id="frm1" method="post" name="form1" onsubmit="return check_form()";>
+            <label>Username : </label>
+            <input type="text" name="uname" id="uname" /><br />
+            <label>Password : </label>
+            <input type="password" name="pword" id="pword" />
+            <br />
+            <input type="submit" value="Login" onclick="vaLogin()" />
+        </form>
+    </div>
+
+</body>
+</html>
