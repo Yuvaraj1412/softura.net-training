@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Dataa
 {
@@ -36,6 +37,43 @@ namespace Dataa
             con.Close();
             Console.WriteLine("Row deleted");
         }
+         public void Insp(int sno,string name)
+        {
+            SqlConnection con = new SqlConnection("Data source=SAMSUNG; database =Trial; user id = sa; password=P@ssw0rd");
+            SqlCommand cmd = new SqlCommand("Enroll_sp", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add("@sno", SqlDbType.Int).Value = sno;
+            cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            Console.WriteLine("Row inserted using stored procedure");
+        }
+        public void Upsp(int sno,string name)
+        {
+            SqlConnection con = new SqlConnection("Data source=SAMSUNG; database =Trial; user id = sa; password=P@ssw0rd");
+            SqlCommand cmd = new SqlCommand("Enroll_up", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add("@sno", SqlDbType.Int).Value = sno;
+            cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            Console.WriteLine("Row Updated Using Stored Procedure");
+
+        }
+        public void Delsp(int sno)
+        {
+            SqlConnection con = new SqlConnection("Data source=SAMSUNG; database =Trial; user id = sa; password=P@ssw0rd");
+            SqlCommand cmd = new SqlCommand("Enroll_del", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add("@sno", SqlDbType.Int).Value = sno;
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            Console.WriteLine("Row Deleted Using Stored Procedure");
+        }
+        
 
 
         static void Main()
