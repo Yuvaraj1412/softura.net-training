@@ -1,0 +1,56 @@
+﻿@model Project.Models.login
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+@*<div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<head>
+    <title>Stone Clinic</title>
+</head>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<center>
+    <img src="~/NewFolder/WhatsApp Image 2022-05-09 at 11.57.39 AM.jpeg" height="50" width="50" /><h1>Stone Clinic</h1>
+</center>
+<style>
+    body {
+        background-image: url("https://img.wallpapersafari.com/desktop/1280/1024/24/49/6UYdCy.jpg");
+        background-size: cover;
+    }
+</style>
+
+<center>
+    <table style="background-image: url('https://thumbs.dreamstime.com/b/security-concept-login-digital-background-pixelated-words-d-render-30468616.jpg') " cellspacing="10" cellpadding="5">
+        <tbody>
+
+            <tr>
+                <th>
+                    @using (Html.BeginForm("Validate", "Home", FormMethod.Post))
+                    {
+                        <p>
+
+                            <font color="white">UserName:</font>  <input type="Text" name="UserName" required pattern="[a-zA-Z0-9]{1,25}" /><br /><br />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                            <font color="white">Password:</font>&nbsp;&nbsp; <input type="password" name="Password" required pattern="[a-zA-Z0-9]{1,25}" /><br /><br />
+                            <input type="submit" value="Login" />
+
+                        </p>
+                    }
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</center>
+

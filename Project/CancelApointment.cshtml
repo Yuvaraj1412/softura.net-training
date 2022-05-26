@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Project.Models.AddApointment>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<head>
+    <title>CancelAppointment</title>
+</head>
+<style>
+    a:link, a:visited {
+        background-color: indianred;
+        color: white;
+        padding: 5px 10px;
+        display: inline-block;
+    }
+
+    a:hover, a:active {
+        background-color: green;
+    }
+</style>
+<center>
+    <hr />
+    <div class="header">
+        <div class="navbar">
+            <img src="~/NewFolder/WhatsApp Image 2022-05-09 at 11.57.39 AM.jpeg" height="50" width="50" />
+            <a href="Homepage">HOME</a>
+            <a href="AddDoctor">ADD DOCTOR</a>
+            <a href="AddPatient">ADD PATIENT</a>
+            <a href="AddApointment">ADD APPOINTMENT</a>
+        </div>
+    </div>
+    <hr />
+
+    <div style="background-color:wheat;width:100%;height:100%;">
+        <h1><b>Cancel Appointment</b></h1><hr />
+        <table border="1" cellspacing="30" cellpadding="10">
+            <tr>
+                <th>@Html.DisplayName("patientID")</th>
+                <th>@Html.DisplayName("Specializations")</th>
+                <th>@Html.DisplayName("DoctorName")</th>
+                <th>@Html.DisplayName("VisitDate")</th>
+                <th>@Html.DisplayName("AppointmentTime")</th>
+            </tr>
+            <div>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.PatientID)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Sepcialization)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Doctor)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.VisitDate)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.AppointmentTime)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Delete", "Home", FormMethod.Post))
+                        {
+                            <input type="submit" value="CancelApointment" class="btn btn-dark" />
+                        }
+                    </td>
+                </tr>
+            }
+            </table>
+            <div><a asp-action="Index">Logout</a></div>
+        </div>
+        
+
+    </center>

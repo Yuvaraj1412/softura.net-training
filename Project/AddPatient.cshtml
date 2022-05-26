@@ -1,0 +1,87 @@
+﻿@model Project.Models.AddPatient
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <head>
+        <title>Add patient</title>
+    </head>
+    <style>
+        a:link, a:visited {
+            background-color: indianred;
+            color: white;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+
+        a:hover, a:active {
+            background-color: green;
+        }
+    </style>
+    @using (Html.BeginForm("AddPat", "Home", FormMethod.Post))
+    {
+        <center>
+            <hr />
+            <div class="header">
+                <div class="navbar">
+                    <img src="~/NewFolder/WhatsApp Image 2022-05-09 at 11.57.39 AM.jpeg" height="50" width="50" />
+                    <a href="Homepage">HOME</a>
+                    <a href="AddDoctor">ADD DOCTOR</a>
+                    <a href="AddApointment">ADD APPOINTMENT</a>
+                    <a href="CancelApointment">CANCEL APPOINTMENT</a>
+                </div>
+            </div>
+            <hr />
+            <div style="background-color:darksalmon;width:100%;height:100%;">
+
+                <h1><b>ADD Patient</b></h1><hr />
+                <table cellspacing="30" cellpadding="5">
+                    <tr>
+                        <th>
+                            FirstName:<br />
+                            @Html.TextBoxFor(m => m.PFirstName, new { style = "width:200px" })
+                            <span asp-validation-for="PFirstName" class="text-danger"></span>
+                        </th>
+                    <tr>
+                        <th>
+                            LastName:<br />
+                            @Html.TextBoxFor(m => m.PLastName, new { style = "width:200px" })
+                            <span asp-validation-for="PLastName" class="text-danger"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Sex:<br />
+                            @Html.RadioButtonFor(m => m.Sex, "M")M
+                            @Html.RadioButtonFor(m => m.Sex, "F")F
+                            @Html.RadioButtonFor(m => m.Sex, "O")O
+                            <span asp-validation-for="Sex" class="text-danger"></span>
+
+                        </th>
+                    <tr>
+                        <th>
+                            Age:<br />
+                            @Html.TextBoxFor(m => m.Age, new { style = "width:200px" })
+                            <span asp-validation-for="Age" class="text-danger"></span>
+
+                        </th>
+                    <tr>
+                    <tr>
+                        <th>
+                            DateOfBirth:<br />
+                            <input asp-for="DateOfBirth" type="date" class="form-control" size="200" />
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+
+                        </th>
+<tr>
+                </table>
+                <input type="submit" value="submit" /><div><a asp-action="Index">Logout</a></div>
+
+            </div>
+        </center>
+
+     }

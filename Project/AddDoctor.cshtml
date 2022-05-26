@@ -1,0 +1,110 @@
+﻿@model Project.Models.AddDoctor
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<head>
+    <title>Add Doctor</title>
+</head>
+<style>
+    a:link, a:visited {
+        background-color: indianred;
+        color: white;
+        padding: 5px 10px;
+        display: inline-block;
+    }
+    a:hover, a:active {
+        background-color: green;
+    }
+</style>
+
+@using (Html.BeginForm("AddDoc", "Home", FormMethod.Post))
+{
+    <center>
+        <hr />
+        <div class="header">
+            <div class="navbar">
+                <img src="~/NewFolder/WhatsApp Image 2022-05-09 at 11.57.39 AM.jpeg" height="50" width="50" />
+                <a href="Homepage">HOME</a>
+                <a href="AddPatient">ADD PATIENT</a>
+                <a href="AddApointment">ADD APPOINTMENT</a>
+                <a href="CancelApointment">CANCEL APPOINTMENT</a>
+            </div>
+        </div>
+        <hr />
+
+        <div style="background-color:burlywood;width:100%;height:100%;">
+            <h1><b>Add Doctor</b></h1>
+            <hr />
+            <b>
+                <table cellspacing="20" cellpadding="5">
+
+                    <tr>
+                        <th>
+                            <b>FirstName:</b><br />
+                            @Html.TextBoxFor(m => m.FirstName,new { style = "width:200px" })
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </th>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <b>LastName:</b><br />
+                            @Html.TextBoxFor(m => m.LastName, new { style = "width:200px" })
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </th>
+
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <b>Sex:</b><br />
+                            @Html.RadioButtonFor(m => m.Sex, "M")M
+                            @Html.RadioButtonFor(m => m.Sex, "F")F
+                            @Html.RadioButtonFor(m => m.Sex, "O")O
+                            <span asp-validation-for="Sex" class="text-danger"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <b>Specialization:</b><br />
+                            <select name="Specialization" style="width:200px">
+                                <option value="Select">Select</option>
+                                <option value="General">General</option>
+                                <option value="Internal Medicine">Internal Medicine</option>
+                                <option value="Pediatrics">Pediatrics</option>
+                                <option value="Orthopedics">Orthopedics</option>
+                                <option value="Ophthalmology">Ophthalmology</option>
+                            </select>
+                            <span asp-validation-for="Specialization" class="text-danger"></span>
+
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <b>VisitingHours:</b><br />
+                            <select name="VisitingHours"style="width:200px">
+                                <option value="Select">Select</option>
+                                <option value="9:00AM-10:00AM">9:00AM-10:00AM</option>
+                                <option value="10:00AM-11:00AM">10:00AM-11:00AM</option>
+                                <option value="11:00AM-12:00PM">11:00AM-12:00PM</option>
+                                <option value="12:00PM-01:00PM">12:00AM-01:00PM</option>
+                            </select>
+                            <span asp-validation-for="VisitingHours" class="text-danger"></span>
+                        </th>
+                    </tr>
+
+                </table>
+
+            </b>
+            <input type="submit" value="submit" class="btn btn-dark" /><br /> <div><a asp-action="Index">Logout</a></div>
+
+        </div>
+    </center>
+
+}
+
